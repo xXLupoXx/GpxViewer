@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="c:\programme\microsoft visual studio 10.0\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="10.0">
+ <Targets>
+  <Target Name="C:\Dokumente und Einstellungen\Dederichs.Kai\Desktop\GPX_Viewer\GPX_Viewer\bin\Debug\GPX_Viewer.exe">
+   <Modules>
+    <Module Name="gpx_viewer.exe">
+     <Namespaces>
+      <Namespace Name="GPX_Viewer">
+       <Types>
+        <Type Name="GPX_Viewer" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#ordnerImportierenToolStripMenuItem_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Objekte verwerfen, bevor Bereich verloren geht" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2011-02-08 12:59:16Z" FixCategory="DependsOnFix">
+             <Issue Name="NonExceptionEdge" Certainty="75" Level="Warning" Path="C:\Dokumente und Einstellungen\Dederichs.Kai\Desktop\GPX_Viewer\GPX_Viewer" File="GPX_Main.cs" Line="67">Rufen Sie in der 'GPX_Viewer.ordnerImportierenToolStripMenuItem_Click(object, EventArgs)'-Methode System.IDisposable.Dispose für das Objekt "'xr'" auf, bevor alle Verweise darauf außerhalb des gültigen Bereichs liegen.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="Objekte verwerfen, bevor Bereich verloren geht" Category="Microsoft.Reliability" CheckId="CA2000">
+   <Name>Objekte verwerfen, bevor Bereich verloren geht</Name>
+   <Description>Wenn ein verwerfbares Objekt nicht explizit verworfen wird, bevor alle Verweise darauf außerhalb des gültigen Bereichs liegen, wird das Objekt zu einer unbestimmten Zeit verworfen, wenn der Garbage Collector den Finalizer des Objekts ausführt. Da möglicherweise ein Ausnahmeereignis auftritt, durch das die Ausführung des Finalizers des Objekts verhindert wird, muss das Objekt stattdessen explizit verworfen werden.</Description>
+   <Resolution Name="NonExceptionEdge">Rufen Sie in der {0}-Methode System.IDisposable.Dispose für das Objekt "{1}" auf, bevor alle Verweise darauf außerhalb des gültigen Bereichs liegen.</Resolution>
+   <Owner>RuleOwner</Owner>
+   <Url>http://msdn.microsoft.com/library/ms182289(VS.100).aspx</Url>
+   <Email />
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="dataflowrules.dll" Version="10.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">Kategorie</String>
+  <String Key="Certainty">Sicherheit</String>
+  <String Key="CollapseAll">Alle reduzieren</String>
+  <String Key="CheckId">Prüf-ID</String>
+  <String Key="Error">Fehler</String>
+  <String Key="Errors">Fehler</String>
+  <String Key="ExpandAll">Alle erweitern</String>
+  <String Key="Help">Hilfe</String>
+  <String Key="Line">Zeile</String>
+  <String Key="Messages">Meldung(en)</String>
+  <String Key="LocationNotStoredInPdb">[Nicht in PDB gespeicherter Speicherort]</String>
+  <String Key="Project">Projekt</String>
+  <String Key="Resolution">Auflösung</String>
+  <String Key="Rule">Regel</String>
+  <String Key="RuleFile">Regeldatei</String>
+  <String Key="RuleDescription">Regelbeschreibung</String>
+  <String Key="Source">Quelle</String>
+  <String Key="Status">Status</String>
+  <String Key="Target">Ziel</String>
+  <String Key="Warning">Warnung</String>
+  <String Key="Warnings">Warnung(en)</String>
+  <String Key="ReportTitle">Codeanalysebericht</String>
+ </Localized>
+</FxCopReport>
