@@ -46,7 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bestaetigung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bestaetigung.Designer.cs">
+      <DependentUpon>Bestaetigung.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controller.cs" />
+    <Compile Include="Export.cs" />
     <Compile Include="GPXDatenSpeicher.cs" />
     <Compile Include="GPX_Main.cs">
       <SubType>Form</SubType>
@@ -59,6 +66,9 @@
     <Compile Include="Model.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Bestaetigung.resx">
+      <DependentUpon>Bestaetigung.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GPX_Main.resx">
       <DependentUpon>GPX_Main.cs</DependentUpon>
     </EmbeddedResource>
