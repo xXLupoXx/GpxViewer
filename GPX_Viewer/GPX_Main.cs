@@ -25,11 +25,12 @@ namespace GPX_Viewer
         // Boolean Success = false;
 
 
-        Controller c = new Controller();
+        Controller c;
 
         public GPX_Viewer()
         {
             InitializeComponent();
+            c = new Controller(this);
             UpdateClickbox();
         }
 
@@ -215,6 +216,11 @@ namespace GPX_Viewer
 
             checked_waypoints.Clear();
             checked_items.Clear();
+
+        }
+
+        private void btn_show_waypoints_Click(object sender, EventArgs e)
+        {
 
         }
     }

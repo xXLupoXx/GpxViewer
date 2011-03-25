@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GPX_Viewer));
             this.Head_Menue = new System.Windows.Forms.MenuStrip();
             this.datenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,6 +56,7 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tbx_suchen_waypoints = new System.Windows.Forms.TextBox();
+            this.lbl_wip = new System.Windows.Forms.Label();
             this.Head_Menue.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tp_tracks.SuspendLayout();
@@ -152,6 +154,7 @@
             this.btn_show_waypoints.TabIndex = 4;
             this.btn_show_waypoints.Text = "Wegpunkte anzeigen";
             this.btn_show_waypoints.UseVisualStyleBackColor = true;
+            this.btn_show_waypoints.Click += new System.EventHandler(this.btn_show_waypoints_Click);
             // 
             // dlg_einzelne_Datei
             // 
@@ -283,16 +286,29 @@
             this.tbx_suchen_waypoints.TabIndex = 11;
             this.tbx_suchen_waypoints.TextChanged += new System.EventHandler(this.tbx_suchen_waypoints_TextChanged);
             // 
+            // lbl_wip
+            // 
+            this.lbl_wip.AutoSize = true;
+            this.lbl_wip.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_wip.Location = new System.Drawing.Point(102, 370);
+            this.lbl_wip.Name = "lbl_wip";
+            this.lbl_wip.Size = new System.Drawing.Size(260, 25);
+            this.lbl_wip.TabIndex = 10;
+            this.lbl_wip.Text = "Vorgang wird ausgegührt!";
+            this.lbl_wip.Visible = false;
+            // 
             // GPX_Viewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(470, 377);
+            this.ClientSize = new System.Drawing.Size(470, 396);
+            this.Controls.Add(this.lbl_wip);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btn_show_waypoints);
             this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.btn_export);
             this.Controls.Add(this.Head_Menue);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.Head_Menue;
             this.Name = "GPX_Viewer";
             this.Text = "GPX Viewer";
@@ -337,6 +353,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.TextBox tbx_suchen_waypoints;
+        public System.Windows.Forms.Label lbl_wip;
     }
 }
 

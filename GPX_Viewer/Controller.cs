@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace GPX_Viewer
 {
@@ -13,27 +15,47 @@ namespace GPX_Viewer
         int index = 0, intBuffer = 0;
         List<string> DataBuffer = new List<string>();
         string[,] ArrayBuffer;
+        GPX_Viewer gw;
+        
 
         Model m = new Model();
         Import i;
         Export e;
 
-        public Controller()
+        public Controller( GPX_Viewer gw)
         {
             i = new Import(m);
             e = new Export(m);
-            
+            this.gw = gw;
         }
 
         public void ImportFolder(FolderBrowserDialog Ordner_Browser)
         {
-            i.ImportGPX(Ordner_Browser,null);
-           
+            gw.lbl_wip.Visible = true;
+                Parallel.Invoke(() =>
+               {
+                   i.ImportGPX(Ordner_Browser, null);
+               }
+                      );
+                gw.lbl_wip.Visible = false;
+            //i.ImportGPX(Ordner_Browser,null);
+            
+        }
+
+        public static void test()
+        {
+
         }
 
         public void ImportFile(FileDialog GPXFile)
         {
-            i.ImportGPX(null, GPXFile);
+            gw.lbl_wip.Visible = true;
+            Parallel.Invoke(() =>
+            {
+                i.ImportGPX(null, GPXFile);
+            }
+      );
+            gw.lbl_wip.Visible = false;
            
         }
 

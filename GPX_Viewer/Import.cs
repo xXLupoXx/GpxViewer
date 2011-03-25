@@ -381,7 +381,7 @@ namespace GPX_Viewer
                 }
                 else
                 {
-                    MessageBox.Show("is schon drin" + debug.ToString());
+                    //MessageBox.Show("is schon drin" + debug.ToString());
                 }
 
             }
