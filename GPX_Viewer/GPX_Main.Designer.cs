@@ -79,28 +79,29 @@
             this.ordnerImportierenToolStripMenuItem,
             this.datenbankExportierenToolStripMenuItem});
             this.datenToolStripMenuItem.Name = "datenToolStripMenuItem";
-            this.datenToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.datenToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.datenToolStripMenuItem.Text = "Daten";
             // 
             // importierenToolStripMenuItem
             // 
             this.importierenToolStripMenuItem.Name = "importierenToolStripMenuItem";
-            this.importierenToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.importierenToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
             this.importierenToolStripMenuItem.Text = "Einzelne Datai Importieren";
             this.importierenToolStripMenuItem.Click += new System.EventHandler(this.importierenToolStripMenuItem_Click);
             // 
             // ordnerImportierenToolStripMenuItem
             // 
             this.ordnerImportierenToolStripMenuItem.Name = "ordnerImportierenToolStripMenuItem";
-            this.ordnerImportierenToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.ordnerImportierenToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
             this.ordnerImportierenToolStripMenuItem.Text = "Ordner Importieren";
             this.ordnerImportierenToolStripMenuItem.Click += new System.EventHandler(this.ordnerImportierenToolStripMenuItem_Click);
             // 
             // datenbankExportierenToolStripMenuItem
             // 
             this.datenbankExportierenToolStripMenuItem.Name = "datenbankExportierenToolStripMenuItem";
-            this.datenbankExportierenToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.datenbankExportierenToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
             this.datenbankExportierenToolStripMenuItem.Text = "Datenbank Exportieren";
+            this.datenbankExportierenToolStripMenuItem.Click += new System.EventHandler(this.datenbankExportierenToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -114,13 +115,13 @@
             // überToolStripMenuItem
             // 
             this.überToolStripMenuItem.Name = "überToolStripMenuItem";
-            this.überToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.überToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
             this.überToolStripMenuItem.Text = "Über";
             // 
             // fAQToolStripMenuItem
             // 
             this.fAQToolStripMenuItem.Name = "fAQToolStripMenuItem";
-            this.fAQToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.fAQToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
             this.fAQToolStripMenuItem.Text = "FAQ";
             // 
             // btn_export
@@ -262,6 +263,7 @@
             this.lv_waypoints.TabIndex = 10;
             this.lv_waypoints.UseCompatibleStateImageBehavior = false;
             this.lv_waypoints.View = System.Windows.Forms.View.Details;
+            this.lv_waypoints.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.lv_waypoints_ItemCheck);
             // 
             // columnHeader1
             // 
@@ -279,6 +281,7 @@
             this.tbx_suchen_waypoints.Name = "tbx_suchen_waypoints";
             this.tbx_suchen_waypoints.Size = new System.Drawing.Size(366, 20);
             this.tbx_suchen_waypoints.TabIndex = 11;
+            this.tbx_suchen_waypoints.TextChanged += new System.EventHandler(this.tbx_suchen_waypoints_TextChanged);
             // 
             // GPX_Viewer
             // 

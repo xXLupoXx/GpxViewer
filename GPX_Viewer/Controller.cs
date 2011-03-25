@@ -37,7 +37,7 @@ namespace GPX_Viewer
            
         }
 
-        public string[,] getTracks_Waypoints(string search) //Liest Daten für die clickbox aus
+        public string[,] getTracks(string search) //Liest Daten für die clickbox aus
         {
             index = 0;
             m.con.Open();
@@ -48,6 +48,30 @@ namespace GPX_Viewer
             m.dr.Read();
             intBuffer = (int)m.dr[0];
             SQL = string.Format("Select Track_Name,ID_Track From tbl_track WHERE Track_Name Like '%{0}%'", search);
+            m.cmd = new OleDbCommand(SQL, m.con);
+            m.dr = m.cmd.ExecuteReader();
+            ArrayBuffer = new string[intBuffer, 2];
+            while (m.dr.Read())
+            {
+                ArrayBuffer[index, 0] = (string)m.dr[0];
+                ArrayBuffer[index, 1] = m.dr[1].ToString();
+                //DataBuffer.Add((string)m.dr[0]);
+                index++;
+            }
+            m.con.Close();
+            return ArrayBuffer;
+        }
+        public string[,] getWaypoints(string search) //Liest Daten für die clickbox aus
+        {
+            index = 0;
+            m.con.Open();
+            SQL = string.Format("Select count(ID_Wegpunkt) From tbl_Wegpunkt WHERE Name Like '%{0}%'", search);
+
+            m.cmd = new OleDbCommand(SQL, m.con);
+            m.dr = m.cmd.ExecuteReader();
+            m.dr.Read();
+            intBuffer = (int)m.dr[0];
+            SQL = string.Format("Select Name,ID_Wegpunkt From tbl_Wegpunkt WHERE Name Like '%{0}%'", search);
             m.cmd = new OleDbCommand(SQL, m.con);
             m.dr = m.cmd.ExecuteReader();
             ArrayBuffer = new string[intBuffer, 2];
@@ -80,9 +104,23 @@ namespace GPX_Viewer
             }
             m.con.Close();
         }
-        public void ExportFile(List<int> Export)
+        public void deleteWaypoint(List<int> ToDel)
         {
-            e.ExportGPX(Export);
+            m.con.Open();
+            if (ToDel.Count > 0)
+            {
+                for (int i = 0; i < ToDel.Count; i++)
+                {
+                    SQL = "DELETE * From tbl_Wegpunkt WHERE ID_Wegpunkt like '" + ToDel[i].ToString() + "'";
+                    m.cmd = new OleDbCommand(SQL, m.con);
+                    m.cmd.ExecuteNonQuery();
+                }
+            }
+            m.con.Close();
+        }
+        public void ExportFile(List<int> Export,List<int> Export_Waypoint)
+        {
+            e.ExportGPX(Export,Export_Waypoint);
         }
 
 

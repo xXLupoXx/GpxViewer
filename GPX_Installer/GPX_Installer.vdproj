@@ -15,7 +15,13 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_9B74B3ACA0D64BAAB6EE89E954F984C7"
+        "MsmKey" = "8:_85A10CFB9026432B851B7E6DB056B4BC"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_AD437E80855A481CBFADA167E3C9CF4D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -43,6 +49,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -59,6 +73,27 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.0,Profile=Client"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4 Client Profile (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.0,Profile=Client"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
+                    {
+                    "Name" = "8:Windows Installer 3.1"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.3.1"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -88,9 +123,29 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9B74B3ACA0D64BAAB6EE89E954F984C7"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_85A10CFB9026432B851B7E6DB056B4BC"
             {
-            "SourcePath" = "8:..\\..\\GPX_Daten.mdb"
+            "SourcePath" = "8:..\\..\\..\\Downloads\\map_edit.ico"
+            "TargetName" = "8:map_edit.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_066B429D0E22475081DD8DE45C5F263E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AD437E80855A481CBFADA167E3C9CF4D"
+            {
+            "SourcePath" = "8:..\\GPX_Viewer\\bin\\Release\\GPX_Daten.mdb"
             "TargetName" = "8:GPX_Daten.mdb"
             "Tag" = "8:"
             "Folder" = "8:_066B429D0E22475081DD8DE45C5F263E"
@@ -165,7 +220,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:GPX Viewer"
         "ProductCode" = "8:{E9AC2C52-1747-4C84-93AD-95398A3607B2}"
-        "PackageCode" = "8:{52B0AD3F-512B-418D-9CFC-2D6C3944AAD0}"
+        "PackageCode" = "8:{77B49EFE-0CE1-4005-9F4D-8007FADE3E2D}"
         "UpgradeCode" = "8:{37007C88-D668-4316-A132-A86C183E994D}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -285,6 +340,20 @@
         }
         "Shortcut"
         {
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_125491D9C0764477AD69CEA6E3974D6F"
+            {
+            "Name" = "8:GPX Viewer"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_556AE932434C4D07AD9B3061216A1816"
+            "Folder" = "8:_D63B7C7A443744569E1C38A564E3CDCF"
+            "WorkingFolder" = "8:_066B429D0E22475081DD8DE45C5F263E"
+            "Icon" = "8:_85A10CFB9026432B851B7E6DB056B4BC"
+            "Feature" = "8:"
+            }
         }
         "UserInterface"
         {

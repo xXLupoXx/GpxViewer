@@ -18,8 +18,9 @@ namespace GPX_Viewer
         Bestaetigung bs;
         FolderBrowserDialog Ordner_Browser;
         string[,] buffer;
-        string search;
+        string search, search_waypoint;
         List<int> checked_items = new List<int>();
+        List<int> checked_waypoints = new List<int>();
         public Boolean deleteSelected = false;
         // Boolean Success = false;
 
@@ -77,14 +78,14 @@ namespace GPX_Viewer
 
         private void btn_export_Click(object sender, EventArgs e)
         {
-            c.ExportFile(checked_items);
+            c.ExportFile(checked_items,checked_waypoints);
         }//ende private void ordnerImportierenToolStripMenuItem_Click(object sender, EventArgs e)
 
 
         private void UpdateClickbox() //Fügt daten in die Clickbox ein
         {
             lv_Tracks.Items.Clear();
-            buffer = c.getTracks_Waypoints(search);
+            buffer = c.getTracks(search);
 
             for (int i = 0; i < buffer.Length / 2; i++)
             {
@@ -100,6 +101,26 @@ namespace GPX_Viewer
                     listItem.Checked = false;
                 }
                 lv_Tracks.Items.Add(listItem);
+
+            }
+
+            lv_waypoints.Items.Clear();
+            buffer = c.getWaypoints(search_waypoint);
+
+            for (int i = 0; i < buffer.Length / 2; i++)
+            {
+
+                ListViewItem listItem = new ListViewItem(buffer[i, 0]);
+                listItem.SubItems.Add(buffer[i, 1]);
+                if (checked_waypoints.Contains(int.Parse(buffer[i, 1])))
+                {
+                    listItem.Checked = true;
+                }
+                else
+                {
+                    listItem.Checked = false;
+                }
+                lv_waypoints.Items.Add(listItem);
 
             }
         }
@@ -125,11 +146,23 @@ namespace GPX_Viewer
         {
             bs = new Bestaetigung(this);
             bs.ShowDialog();
-           if(deleteSelected)
-           {
-             c.deleteTrack(checked_items);
-             UpdateClickbox();
-           }
+
+            if (tabControl1.SelectedIndex == 0)
+            {
+                if (deleteSelected)
+                {
+                    c.deleteTrack(checked_items);
+                    UpdateClickbox();
+                }
+            }
+            else if (tabControl1.SelectedIndex == 1)
+            {
+                if (deleteSelected)
+                {
+                    c.deleteWaypoint(checked_waypoints);
+                    UpdateClickbox();
+                }
+            }
            
         }
 
@@ -139,9 +172,50 @@ namespace GPX_Viewer
             UpdateClickbox();
         }
 
+        private void lv_waypoints_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (e.CurrentValue == CheckState.Unchecked && !checked_waypoints.Contains(int.Parse(lv_waypoints.Items[e.Index].SubItems[1].Text)))
+            {
+                //MessageBox.Show(lv_Namen.Items[e.Index].SubItems[1].Text);
+                checked_waypoints.Add(int.Parse(lv_waypoints.Items[e.Index].SubItems[1].Text));
+            }
+            else if ((e.CurrentValue == CheckState.Checked))
+            {
+                //MessageBox.Show(int.Parse(lv_Tracks.Items[e.Index].SubItems[1].Text).ToString());
+                checked_waypoints.Remove(int.Parse(lv_waypoints.Items[e.Index].SubItems[1].Text));
+            }
+        }
 
-        
+        private void tbx_suchen_waypoints_TextChanged(object sender, EventArgs e)
+        {
+            search_waypoint = tbx_suchen_waypoints.Text;
+            UpdateClickbox();
+            
+        }
 
+        private void datenbankExportierenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            checked_waypoints.Clear();
+            checked_items.Clear();
 
+            buffer = c.getWaypoints("");
+
+            for(int i = 0; i < buffer.Length / 2;i++)
+            {
+                checked_waypoints.Add(int.Parse(buffer[i, 1]));
+            }
+
+            buffer = c.getTracks("");
+
+            for (int i = 0; i < buffer.Length / 2; i++)
+            {
+                checked_items.Add(int.Parse(buffer[i, 1]));
+            }
+            c.ExportFile(checked_items, checked_waypoints);
+
+            checked_waypoints.Clear();
+            checked_items.Clear();
+
+        }
     }
 }

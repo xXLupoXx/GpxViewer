@@ -189,8 +189,15 @@ namespace GPX_Viewer
                     }
                     if (xr.NodeType == XmlNodeType.EndElement && xr.Name == "wpt")
                     {
-
-                        SQL = "Insert Into tbl_Wegpunkt (Längengrad,Breitengrad,Ele,Name,CMT,DESC,sym) Values ('" + akt_lon + "','" + akt_lat + "','" + akt_ele + "','" + name + "','" + cmt + "','" + desc + "','" + sym + "')";
+                        
+                        SQL = "SELECT count(*) FROM tbl_Wegpunkt WHERE Längengrad like '" + akt_lon + "' AND Breitengrad like '" + akt_lat + "' AND Ele like '" + akt_ele + "' AND Name like '" + name + "' AND CMT like '" + cmt + "' AND DESC_Feld like '" + desc + "' AND sym like '" + sym + "'";
+                        m.cmd = new OleDbCommand(SQL, m.con);
+                        m.dr = m.cmd.ExecuteReader();
+                        m.dr.Read();
+                        if ((int)m.dr[0] == 0)
+                        {
+                            SQL = "INSERT INTO tbl_Wegpunkt (Längengrad,Breitengrad,Ele,Name,CMT,DESC_Feld,sym) VALUES ('" + akt_lon + "','" + akt_lat + "','" + akt_ele + "','" + name + "','" + cmt + "','" + desc + "','" + sym + "')";
+                        }
                         m.cmd = new OleDbCommand(SQL, m.con);
                         m.cmd.ExecuteNonQuery();
                        

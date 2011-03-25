@@ -20,7 +20,7 @@ namespace GPX_Viewer
         }
 
 
-        public void ExportGPX(List<int> ToExport)
+        public void ExportGPX(List<int> ToExport, List<int> ToExport_Waypoint)
         {
             m.con.Open();
             StreamWriter myFile = new StreamWriter(Path.Combine(Application.StartupPath,"test.gpx"));
@@ -56,15 +56,28 @@ namespace GPX_Viewer
 
                 //Trackpoints Ende
 
-                myFile.Write("</trkseg>\n</trk>\n");
+                myFile.Write("</trkseg>\n</trk>\n\n");
             }
             //Track Ende
 
 
 
             //Waypoints
-
-                //MACHEN!!!
+            for (int i = 0; i < ToExport_Waypoint.Count; i++)
+            {
+                //Waypoint aus DB
+                SQL = String.Format("Select * From tbl_Wegpunkt WHERE ID_Wegpunkt like '{0}'", ToExport_Waypoint[i]);
+                m.cmd = new OleDbCommand(SQL, m.con);
+                m.dr = m.cmd.ExecuteReader();
+                m.dr.Read();
+                myFile.Write("<wpt lat=\"" + m.dr[2] + "\" lon=\"" + m.dr[1] + "\">\n");
+                myFile.Write("<ele>" + m.dr[3] + "</ele>\n");
+                myFile.Write("<name>" + m.dr[4] + "</name>\n");
+                myFile.Write("<cmt>" + m.dr[5] + "</cmt>\n");
+                myFile.Write("<desc>" + m.dr[6] + "</desc>\n");
+                myFile.Write("<sym>" + m.dr[7] + "</sym>\n");
+                myFile.Write("<extensions>\n<gpxx:WaypointExtension xmlns:gpxx=\"http://www.garmin.com/xmlschemas/GpxExtensions/v3\">\n<gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>\n</gpxx:WaypointExtension>\n</extensions>\n</wpt>\n\n");
+            }
 
             //Waypoints ende
             //ende der Datei

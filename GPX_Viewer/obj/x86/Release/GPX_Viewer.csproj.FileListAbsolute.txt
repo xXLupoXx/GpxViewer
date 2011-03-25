@@ -18,3 +18,23 @@ C:\Dokumente und Einstellungen\haendler.sascha\Desktop\GPX_Viewer\GPX_Viewer\obj
 C:\Dokumente und Einstellungen\haendler.sascha\Desktop\GPX_Viewer\GPX_Viewer\obj\x86\Release\GPX_Viewer.Properties.Resources.resources
 C:\Dokumente und Einstellungen\haendler.sascha\Desktop\GPX_Viewer\GPX_Viewer\obj\x86\Release\GenerateResource.read.1.tlog
 C:\Dokumente und Einstellungen\haendler.sascha\Desktop\GPX_Viewer\GPX_Viewer\obj\x86\Release\GenerateResource.write.1.tlog
+D:\Sascha\Desktop\GPX_Viewer\GPX_Viewer\obj\x86\Release\GPX_Viewer.exe
+D:\Sascha\Desktop\GPX_Viewer\GPX_Viewer\obj\x86\Release\GPX_Viewer.pdb
+D:\Sascha\Desktop\GPX_Viewer\GPX_Viewer\bin\Release\GPX_Viewer.exe
+D:\Sascha\Desktop\GPX_Viewer\GPX_Viewer\bin\Release\GPX_Viewer.pdb
+D:\Sascha\Desktop\GPX_Viewer\GPX_Viewer\obj\x86\Release\ResolveAssemblyReference.cache
+D:\Sascha\Desktop\GPX_Viewer\GPX_Viewer\obj\x86\Release\GPX_Viewer.Bestaetigung.resources
+D:\Sascha\Desktop\GPX_Viewer\GPX_Viewer\obj\x86\Release\GPX_Viewer.GPX_Viewer.resources
+D:\Sascha\Desktop\GPX_Viewer\GPX_Viewer\obj\x86\Release\GPX_Viewer.Properties.Resources.resources
+D:\Sascha\Desktop\GPX_Viewer\GPX_Viewer\obj\x86\Release\GenerateResource.read.1.tlog
+D:\Sascha\Desktop\GPX_Viewer\GPX_Viewer\obj\x86\Release\GenerateResource.write.1.tlog
+C:\Users\Kai\Desktop\GPX_Viewer\GPX_Viewer\obj\x86\Release\GPX_Viewer.exe
+C:\Users\Kai\Desktop\GPX_Viewer\GPX_Viewer\obj\x86\Release\GPX_Viewer.pdb
+C:\Users\Kai\Desktop\GPX_Viewer\GPX_Viewer\bin\Release\GPX_Viewer.exe
+C:\Users\Kai\Desktop\GPX_Viewer\GPX_Viewer\bin\Release\GPX_Viewer.pdb
+C:\Users\Kai\Desktop\GPX_Viewer\GPX_Viewer\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\Kai\Desktop\GPX_Viewer\GPX_Viewer\obj\x86\Release\GPX_Viewer.Bestaetigung.resources
+C:\Users\Kai\Desktop\GPX_Viewer\GPX_Viewer\obj\x86\Release\GPX_Viewer.GPX_Viewer.resources
+C:\Users\Kai\Desktop\GPX_Viewer\GPX_Viewer\obj\x86\Release\GPX_Viewer.Properties.Resources.resources
+C:\Users\Kai\Desktop\GPX_Viewer\GPX_Viewer\obj\x86\Release\GenerateResource.read.1.tlog
+C:\Users\Kai\Desktop\GPX_Viewer\GPX_Viewer\obj\x86\Release\GenerateResource.write.1.tlog
