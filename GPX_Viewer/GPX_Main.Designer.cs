@@ -39,7 +39,7 @@
             this.fAQToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_export = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
-            this.btn_show_waypoints = new System.Windows.Forms.Button();
+            this.btn_edit = new System.Windows.Forms.Button();
             this.dlg_einzelne_Datei = new System.Windows.Forms.OpenFileDialog();
             this.dlg_export = new System.Windows.Forms.SaveFileDialog();
             this.dlg_browse_folder = new System.Windows.Forms.FolderBrowserDialog();
@@ -49,6 +49,7 @@
             this.tbx_suchen_Tracks = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tp_tracks = new System.Windows.Forms.TabPage();
+            this.cb_search = new System.Windows.Forms.ComboBox();
             this.lbl_suchen_tracks = new System.Windows.Forms.Label();
             this.tp_waypoints = new System.Windows.Forms.TabPage();
             this.lbl_suchen_way = new System.Windows.Forms.Label();
@@ -128,33 +129,42 @@
             // 
             // btn_export
             // 
+            this.btn_export.Image = ((System.Drawing.Image)(resources.GetObject("btn_export.Image")));
+            this.btn_export.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_export.Location = new System.Drawing.Point(12, 318);
             this.btn_export.Name = "btn_export";
-            this.btn_export.Size = new System.Drawing.Size(99, 47);
+            this.btn_export.Size = new System.Drawing.Size(99, 78);
             this.btn_export.TabIndex = 2;
             this.btn_export.Text = "Exportieren";
+            this.btn_export.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_export.UseVisualStyleBackColor = true;
             this.btn_export.Click += new System.EventHandler(this.btn_export_Click);
             // 
             // btn_delete
             // 
+            this.btn_delete.Image = ((System.Drawing.Image)(resources.GetObject("btn_delete.Image")));
+            this.btn_delete.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_delete.Location = new System.Drawing.Point(359, 320);
             this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(99, 45);
+            this.btn_delete.Size = new System.Drawing.Size(99, 76);
             this.btn_delete.TabIndex = 3;
             this.btn_delete.Text = "Löschen";
+            this.btn_delete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_delete.UseVisualStyleBackColor = true;
             this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
-            // btn_show_waypoints
+            // btn_edit
             // 
-            this.btn_show_waypoints.Location = new System.Drawing.Point(192, 319);
-            this.btn_show_waypoints.Name = "btn_show_waypoints";
-            this.btn_show_waypoints.Size = new System.Drawing.Size(99, 47);
-            this.btn_show_waypoints.TabIndex = 4;
-            this.btn_show_waypoints.Text = "Wegpunkte anzeigen";
-            this.btn_show_waypoints.UseVisualStyleBackColor = true;
-            this.btn_show_waypoints.Click += new System.EventHandler(this.btn_show_waypoints_Click);
+            this.btn_edit.Image = ((System.Drawing.Image)(resources.GetObject("btn_edit.Image")));
+            this.btn_edit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_edit.Location = new System.Drawing.Point(192, 319);
+            this.btn_edit.Name = "btn_edit";
+            this.btn_edit.Size = new System.Drawing.Size(99, 77);
+            this.btn_edit.TabIndex = 4;
+            this.btn_edit.Text = "Bearbeiten";
+            this.btn_edit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_edit.UseVisualStyleBackColor = true;
+            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
             // 
             // dlg_einzelne_Datei
             // 
@@ -176,7 +186,7 @@
             this.clh_id});
             this.lv_Tracks.Location = new System.Drawing.Point(6, 32);
             this.lv_Tracks.Name = "lv_Tracks";
-            this.lv_Tracks.Size = new System.Drawing.Size(429, 183);
+            this.lv_Tracks.Size = new System.Drawing.Size(429, 221);
             this.lv_Tracks.TabIndex = 7;
             this.lv_Tracks.UseCompatibleStateImageBehavior = false;
             this.lv_Tracks.View = System.Windows.Forms.View.Details;
@@ -194,9 +204,9 @@
             // 
             // tbx_suchen_Tracks
             // 
-            this.tbx_suchen_Tracks.Location = new System.Drawing.Point(69, 6);
+            this.tbx_suchen_Tracks.Location = new System.Drawing.Point(59, 6);
             this.tbx_suchen_Tracks.Name = "tbx_suchen_Tracks";
-            this.tbx_suchen_Tracks.Size = new System.Drawing.Size(366, 20);
+            this.tbx_suchen_Tracks.Size = new System.Drawing.Size(274, 20);
             this.tbx_suchen_Tracks.TabIndex = 8;
             this.tbx_suchen_Tracks.TextChanged += new System.EventHandler(this.tbx_suchen_Tracks_TextChanged);
             // 
@@ -212,6 +222,7 @@
             // 
             // tp_tracks
             // 
+            this.tp_tracks.Controls.Add(this.cb_search);
             this.tp_tracks.Controls.Add(this.lbl_suchen_tracks);
             this.tp_tracks.Controls.Add(this.lv_Tracks);
             this.tp_tracks.Controls.Add(this.tbx_suchen_Tracks);
@@ -222,6 +233,18 @@
             this.tp_tracks.TabIndex = 0;
             this.tp_tracks.Text = "Tracks";
             this.tp_tracks.UseVisualStyleBackColor = true;
+            // 
+            // cb_search
+            // 
+            this.cb_search.FormattingEnabled = true;
+            this.cb_search.Items.AddRange(new object[] {
+            "Name",
+            "Datum"});
+            this.cb_search.Location = new System.Drawing.Point(339, 6);
+            this.cb_search.Name = "cb_search";
+            this.cb_search.Size = new System.Drawing.Size(93, 21);
+            this.cb_search.TabIndex = 10;
+            this.cb_search.SelectedIndexChanged += new System.EventHandler(this.cb_search_SelectedIndexChanged);
             // 
             // lbl_suchen_tracks
             // 
@@ -262,7 +285,7 @@
             this.columnHeader2});
             this.lv_waypoints.Location = new System.Drawing.Point(6, 32);
             this.lv_waypoints.Name = "lv_waypoints";
-            this.lv_waypoints.Size = new System.Drawing.Size(429, 183);
+            this.lv_waypoints.Size = new System.Drawing.Size(429, 221);
             this.lv_waypoints.TabIndex = 10;
             this.lv_waypoints.UseCompatibleStateImageBehavior = false;
             this.lv_waypoints.View = System.Windows.Forms.View.Details;
@@ -290,7 +313,7 @@
             // 
             this.lbl_wip.AutoSize = true;
             this.lbl_wip.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_wip.Location = new System.Drawing.Point(102, 370);
+            this.lbl_wip.Location = new System.Drawing.Point(102, 399);
             this.lbl_wip.Name = "lbl_wip";
             this.lbl_wip.Size = new System.Drawing.Size(260, 25);
             this.lbl_wip.TabIndex = 10;
@@ -301,10 +324,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(470, 396);
+            this.ClientSize = new System.Drawing.Size(470, 428);
             this.Controls.Add(this.lbl_wip);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.btn_show_waypoints);
+            this.Controls.Add(this.btn_edit);
             this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.btn_export);
             this.Controls.Add(this.Head_Menue);
@@ -336,7 +359,7 @@
         private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.ToolStripMenuItem ordnerImportierenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem datenbankExportierenToolStripMenuItem;
-        private System.Windows.Forms.Button btn_show_waypoints;
+        private System.Windows.Forms.Button btn_edit;
         private System.Windows.Forms.OpenFileDialog dlg_einzelne_Datei;
         private System.Windows.Forms.SaveFileDialog dlg_export;
         private System.Windows.Forms.FolderBrowserDialog dlg_browse_folder;
@@ -354,6 +377,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.TextBox tbx_suchen_waypoints;
         public System.Windows.Forms.Label lbl_wip;
+        private System.Windows.Forms.ComboBox cb_search;
     }
 }
 

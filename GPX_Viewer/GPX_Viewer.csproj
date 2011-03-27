@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bearbeiten.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bearbeiten.Designer.cs">
+      <DependentUpon>Bearbeiten.cs</DependentUpon>
+    </Compile>
     <Compile Include="Bestaetigung.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,9 @@
     <Compile Include="Model.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Bearbeiten.resx">
+      <DependentUpon>Bearbeiten.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Bestaetigung.resx">
       <DependentUpon>Bestaetigung.cs</DependentUpon>
     </EmbeddedResource>

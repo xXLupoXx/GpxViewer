@@ -16,6 +16,7 @@ namespace GPX_Viewer
     {
         FileDialog GPXSource;
         Bestaetigung bs;
+        Bearbeiten edit;
         FolderBrowserDialog Ordner_Browser;
         string[,] buffer;
         string search, search_waypoint;
@@ -23,7 +24,7 @@ namespace GPX_Viewer
         List<int> checked_waypoints = new List<int>();
         public Boolean deleteSelected = false;
         // Boolean Success = false;
-
+        
 
         Controller c;
 
@@ -31,6 +32,7 @@ namespace GPX_Viewer
         {
             InitializeComponent();
             c = new Controller(this);
+            cb_search.SelectedIndex = 0;
             UpdateClickbox();
         }
 
@@ -86,7 +88,7 @@ namespace GPX_Viewer
         private void UpdateClickbox() //Fügt daten in die Clickbox ein
         {
             lv_Tracks.Items.Clear();
-            buffer = c.getTracks(search);
+            buffer = c.getTracks(search,cb_search.SelectedIndex);
 
             for (int i = 0; i < buffer.Length / 2; i++)
             {
@@ -191,7 +193,6 @@ namespace GPX_Viewer
         {
             search_waypoint = tbx_suchen_waypoints.Text;
             UpdateClickbox();
-            
         }
 
         private void datenbankExportierenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -206,7 +207,7 @@ namespace GPX_Viewer
                 checked_waypoints.Add(int.Parse(buffer[i, 1]));
             }
 
-            buffer = c.getTracks("");
+            buffer = c.getTracks("",0);
 
             for (int i = 0; i < buffer.Length / 2; i++)
             {
@@ -219,9 +220,50 @@ namespace GPX_Viewer
 
         }
 
-        private void btn_show_waypoints_Click(object sender, EventArgs e)
+        private void btn_edit_Click(object sender, EventArgs e)
         {
+            if (tabControl1.SelectedIndex == 0)
+            {
+                if (checked_items.Count > 1)
+                {
+                    MessageBox.Show("Bitte nur einen Track auswählen.");
+                }
+                else if (checked_items.Count < 1)
+                {
+                    MessageBox.Show("Bitte einen Track auswählen.");
+                }
+                else
+                {
+                    edit = new Bearbeiten(c, checked_items[0], "Track");
+                    edit.ShowDialog();
+                }                
+            }
+            else if (tabControl1.SelectedIndex == 1)
+            {
+                if (checked_waypoints.Count > 1)
+                {
+                    MessageBox.Show("Bitte nur einen Waypoint auswählen.");
+                }
+                else if (checked_waypoints.Count < 1)
+                {
+                    MessageBox.Show("Bitte einen Waypoint auswählen.");
+                }
+                else
+                {
+                    edit = new Bearbeiten(c, checked_waypoints[0], "Waypoint");
+                    edit.ShowDialog();
+                }
+            }            
+        }
 
+        public void UseUpdateClickbox()
+        {
+            UpdateClickbox();
+        }
+
+        private void cb_search_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateClickbox();
         }
     }
 }
