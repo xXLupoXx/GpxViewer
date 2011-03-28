@@ -113,6 +113,8 @@ namespace GPX_Viewer
             return true;
         }
 
+
+
         private void ImportFiles(FileInfo f)
         {
             IndexList = new List<int>();

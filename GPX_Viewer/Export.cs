@@ -14,6 +14,7 @@ namespace GPX_Viewer
         List<string> sLines = new List<string>();
         Model m;
         string SQL;
+        string ExportPath;
         public Export(Model m)
         {
             this.m = m;
@@ -23,7 +24,14 @@ namespace GPX_Viewer
         public void ExportGPX(List<int> ToExport, List<int> ToExport_Waypoint)
         {
             m.con.Open();
-            StreamWriter myFile = new StreamWriter(Path.Combine(Application.StartupPath,"test.gpx"));
+            GPX_Viewer exportLocation = new GPX_Viewer();
+
+            if (exportLocation.dlg_export.ShowDialog() == DialogResult.OK)
+            {
+                ExportPath = exportLocation.dlg_export.FileName;
+                MessageBox.Show(ExportPath);
+            }
+            StreamWriter myFile = new StreamWriter(ExportPath);
             //Header
             myFile.Write("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\" ?>\n");
             myFile.Write("<gpx xmlns=\"http://www.topografix.com/GPX/1/1\" creator=\"\" version=\"1.1\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd\">\n");

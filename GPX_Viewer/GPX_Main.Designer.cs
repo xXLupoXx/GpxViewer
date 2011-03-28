@@ -169,13 +169,13 @@
             // dlg_einzelne_Datei
             // 
             this.dlg_einzelne_Datei.DefaultExt = "gpx";
-            this.dlg_einzelne_Datei.Filter = "GPX-Datein|*.gpx|Alle Datein|*.*";
+            this.dlg_einzelne_Datei.Filter = "GPX-Datein|*.gpx";
             this.dlg_einzelne_Datei.Title = "Bitte GPX Datei auswählen";
             // 
             // dlg_export
             // 
             this.dlg_export.DefaultExt = "gpx";
-            this.dlg_export.Filter = "GPX-Datein|*.gpx|Alle Datein|*.*";
+            this.dlg_export.Filter = "GPX-Datein|*.gpx";
             this.dlg_export.Title = "Datei Exportieren";
             // 
             // lv_Tracks
@@ -361,7 +361,6 @@
         private System.Windows.Forms.ToolStripMenuItem datenbankExportierenToolStripMenuItem;
         private System.Windows.Forms.Button btn_edit;
         private System.Windows.Forms.OpenFileDialog dlg_einzelne_Datei;
-        private System.Windows.Forms.SaveFileDialog dlg_export;
         private System.Windows.Forms.FolderBrowserDialog dlg_browse_folder;
         private System.Windows.Forms.ListView lv_Tracks;
         private System.Windows.Forms.ColumnHeader clh_Name;
@@ -378,6 +377,7 @@
         private System.Windows.Forms.TextBox tbx_suchen_waypoints;
         public System.Windows.Forms.Label lbl_wip;
         private System.Windows.Forms.ComboBox cb_search;
+        public System.Windows.Forms.SaveFileDialog dlg_export;
     }
 }
 
