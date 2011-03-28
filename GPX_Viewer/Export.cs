@@ -70,8 +70,8 @@ namespace GPX_Viewer
                 m.cmd = new OleDbCommand(SQL, m.con);
                 m.dr = m.cmd.ExecuteReader();
                 m.dr.Read();
-                myFile.Write("<wpt lat=\"" + m.dr[2] + "\" lon=\"" + m.dr[1] + "\">\n");
-                myFile.Write("<ele>" + m.dr[3] + "</ele>\n");
+                myFile.Write("<wpt lat=\"" + m.dr[2].ToString().Replace(',', '.') + "\" lon=\"" + m.dr[1].ToString().Replace(',', '.') + "\">\n");
+                myFile.Write("<ele>" + m.dr[3].ToString().Replace(',', '.') + "</ele>\n");
                 myFile.Write("<name>" + m.dr[4] + "</name>\n");
                 myFile.Write("<cmt>" + m.dr[5] + "</cmt>\n");
                 myFile.Write("<desc>" + m.dr[6] + "</desc>\n");
